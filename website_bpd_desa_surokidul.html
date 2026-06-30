@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPD Desa Surokidul - Kec. Pagerbarang, Kab. Tegal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16',
+                        },
+                        darkBg: '#090d16',
+                        darkCard: '#111827',
+                        darkBorder: '#1f2937'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #090d16;
+            color: #f1f5f9;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-brand-500 selection:text-white antialiased">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-darkBg/90 backdrop-blur-md border-b border-darkBorder transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Identity -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-white p-1 rounded-xl shadow-lg border border-slate-700/50 w-12 h-12 flex items-center justify-center overflow-hidden">
+                        <img src="images.jpg" alt="Logo BPD" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/ffffff/052e16?text=BPD'">
+                    </div>
+                    <div>
+                        <h1 class="text-base sm:text-lg font-extrabold tracking-tight text-white flex items-center gap-1.5">
+                            BPD <span class="text-brand-400">Surokidul</span>
+                        </h1>
+                        <p class="text-[10px] sm:text-xs text-slate-400 font-medium tracking-wide uppercase">Kec. Pagerbarang, Kab. Tegal</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#hero" class="text-sm font-semibold text-slate-300 hover:text-brand-400 transition-colors" data-i18n="nav-home">Beranda</a>
+                    <a href="#aspirasi" class="text-sm font-semibold text-slate-300 hover:text-brand-400 transition-colors" data-i18n="nav-aspirasi">E-Aspirasi</a>
+                    <a href="#regulasi" class="text-sm font-semibold text-slate-300 hover:text-brand-400 transition-colors" data-i18n="nav-regulasi">Regulasi</a>
+                    <a href="#keanggotaan" class="text-sm font-semibold text-slate-300 hover:text-brand-400 transition-colors" data-i18n="nav-about">Anggota</a>
+                    <a href="#berita" class="text-sm font-semibold text-slate-300 hover:text-brand-400 transition-colors" data-i18n="nav-news">Berita</a>
+                </nav>
+
+                <!-- Language Selector & Mobile Menu Trigger -->
+                <div class="flex items-center space-x-4">
+                    <!-- Language Selector Button -->
+                    <div class="relative inline-block text-left">
+                        <button onclick="toggleLangDropdown()" id="langBtn" class="flex items-center gap-2 bg-slate-900 border border-darkBorder hover:border-brand-500/50 text-slate-300 hover:text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all focus:outline-none">
+                            <i class="fa-solid fa-globe text-brand-400"></i>
+                            <span id="current-lang-label">ID</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] text-slate-500"></i>
+                        </button>
+                        <!-- Language Menu Dropdown -->
+                        <div id="langDropdown" class="hidden absolute right-0 mt-2 w-32 rounded-xl bg-slate-900 border border-darkBorder shadow-2xl z-50 overflow-hidden">
+                            <button onclick="changeLanguage('id')" class="w-full text-left px-4 py-2.5 text-xs text-slate-300 hover:bg-slate-800 hover:text-brand-400 transition-all font-semibold flex items-center gap-2">
+                                <span class="text-base">🇮🇩</span> Indonesia
+                            </button>
+                            <button onclick="changeLanguage('en')" class="w-full text-left px-4 py-2.5 text-xs text-slate-300 hover:bg-slate-800 hover:text-brand-400 transition-all font-semibold flex items-center gap-2">
+                                <span class="text-base">🇬🇧</span> English
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 border border-darkBorder focus:outline-none">
+                        <i class="fa-solid fa-bars text-lg" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-darkBorder bg-darkBg/95 px-4 py-4 space-y-2.5 transition-all">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-300 hover:bg-slate-900 hover:text-brand-400" data-i18n="nav-home">Beranda</a>
+            <a href="#aspirasi" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-300 hover:bg-slate-900 hover:text-brand-400" data-i18n="nav-aspirasi">E-Aspirasi</a>
+            <a href="#regulasi" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-300 hover:bg-slate-900 hover:text-brand-400" data-i18n="nav-regulasi">Regulasi</a>
+            <a href="#keanggotaan" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-300 hover:bg-slate-900 hover:text-brand-400" data-i18n="nav-about">Anggota</a>
+            <a href="#berita" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-300 hover:bg-slate-900 hover:text-brand-400" data-i18n="nav-news">Berita</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-darkBorder bg-slate-950">
+        <!-- Abstract glowing background circles -->
+        <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-950 border border-brand-800 text-brand-400 uppercase tracking-widest gap-2 mx-auto lg:mx-0">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-ping"></span>
+                        <span data-i18n="hero-badge">Portal Digital Legislatif Desa</span>
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-none text-white">
+                        <span data-i18n="hero-title-1">Suara Anda,</span><br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-400" data-i18n="hero-title-2">Masa Depan Surokidul</span>
+                    </h2>
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light" data-i18n="hero-desc">
+                        Selamat datang di portal resmi Badan Permusyawaratan Desa (BPD) Surokidul, Kec. Pagerbarang, Kab. Tegal. Kami hadir untuk menampung aspirasi rakyat, merumuskan regulasi lokal, dan mengawal transparansi roda pemerintahan desa.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#aspirasi" class="inline-flex items-center justify-center px-6 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-2xl shadow-xl hover:shadow-brand-900/30 transition-all gap-2 transform hover:-translate-y-0.5 text-sm">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span data-i18n="btn-hero-aspirasi">Kirim Aspirasi Sekarang</span>
+                        </a>
+                        <a href="#regulasi" class="inline-flex items-center justify-center px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white font-bold rounded-2xl border border-darkBorder hover:border-slate-700 transition-all gap-2 transform hover:-translate-y-0.5 text-sm">
+                            <i class="fa-solid fa-gavel"></i>
+                            <span data-i18n="btn-hero-reg">Lihat Katalog Regulasi</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Banner Image / Mockup -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-sm sm:max-w-md">
+                        <!-- Background glow effect behind image -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-500 to-emerald-500 rounded-3xl blur opacity-30"></div>
+                        <div class="relative bg-slate-900 border border-darkBorder p-5 rounded-3xl shadow-2xl">
+                            <!-- Header inside mockup -->
+                            <div class="flex items-center justify-between border-b border-darkBorder pb-4 mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <span class="text-[10px] font-mono text-slate-500">bpd-surokidul.net</span>
+                            </div>
+                            <!-- Mockup Content -->
+                            <div class="space-y-4">
+                                <div class="p-3 bg-slate-950 rounded-2xl border border-darkBorder">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-[10px] font-extrabold text-brand-400 uppercase tracking-widest" data-i18n="mock-title">Statistik Bulan Ini</span>
+                                        <i class="fa-solid fa-chart-line text-xs text-slate-500"></i>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-2 mt-2">
+                                        <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800 text-center">
+                                            <p class="text-[10px] text-slate-400 font-medium" data-i18n="mock-asp">Aspirasi Masuk</p>
+                                            <p class="text-lg font-bold text-white">48</p>
+                                        </div>
+                                        <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800 text-center">
+                                            <p class="text-[10px] text-slate-400 font-medium" data-i18n="mock-done">Selesai Dibahas</p>
+                                            <p class="text-lg font-bold text-brand-400">42</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-3.5 bg-gradient-to-br from-brand-950 to-slate-950 rounded-2xl border border-brand-900/40">
+                                    <p class="text-xs font-bold text-white" data-i18n="mock-highlight-title">Musyawarah Terdekat</p>
+                                    <p class="text-[10px] text-slate-300 mt-1" data-i18n="mock-highlight-desc">Pembahasan Draf APBDes Surokidul TA 2026</p>
+                                    <div class="flex items-center gap-1.5 mt-2.5 text-[10px] text-brand-300 font-semibold">
+                                        <i class="fa-regular fa-clock"></i> <span data-i18n="mock-time">Sabtu, Jam 09:00 WIB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS DASHBOARD -->
+    <section class="bg-slate-950 py-10 border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Stat 1 -->
+                <div class="bg-slate-900 border border-darkBorder p-5 rounded-2xl flex items-center space-x-4">
+                    <div class="p-3.5 bg-brand-950 text-brand-400 rounded-xl">
+                        <i class="fa-solid fa-comments text-lg sm:text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-extrabold text-white">128</p>
+                        <p class="text-xs text-slate-400 font-medium" data-i18n="stat-aspirasi">Total Aspirasi Masuk</p>
+                    </div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="bg-slate-900 border border-darkBorder p-5 rounded-2xl flex items-center space-x-4">
+                    <div class="p-3.5 bg-emerald-950 text-emerald-400 rounded-xl">
+                        <i class="fa-solid fa-file-signature text-lg sm:text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-extrabold text-white">14</p>
+                        <p class="text-xs text-slate-400 font-medium" data-i18n="stat-regulasi">Peraturan Desa Disahkan</p>
+                    </div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="bg-slate-900 border border-darkBorder p-5 rounded-2xl flex items-center space-x-4">
+                    <div class="p-3.5 bg-blue-950 text-blue-400 rounded-xl">
+                        <i class="fa-solid fa-calendar-check text-lg sm:text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-extrabold text-white">36</p>
+                        <p class="text-xs text-slate-400 font-medium" data-i18n="stat-musdes">Musyawarah Terlaksana</p>
+                    </div>
+                </div>
+                <!-- Stat 4 -->
+                <div class="bg-slate-900 border border-darkBorder p-5 rounded-2xl flex items-center space-x-4">
+                    <div class="p-3.5 bg-indigo-950 text-indigo-400 rounded-xl">
+                        <i class="fa-solid fa-circle-check text-lg sm:text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-extrabold text-white">92%</p>
+                        <p class="text-xs text-slate-400 font-medium" data-i18n="stat-puas">Tingkat Tindak Lanjut</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-ASPIRASI SECTION -->
+    <section id="aspirasi" class="bg-slate-950 py-16 lg:py-24 border-b border-darkBorder relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-950 border border-brand-800 text-brand-400 uppercase tracking-widest gap-2">
+                    <i class="fa-solid fa-bullhorn text-[10px]"></i> <span data-i18n="asp-section-badge">Transparansi & Interaksi Publik</span>
+                </span>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white">
+                    <span data-i18n="asp-section-title-1">Layanan</span> <span class="text-brand-400" data-i18n="asp-section-title-2">E-Aspirasi Surokidul</span>
+                </h3>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-light" data-i18n="asp-section-desc">
+                    Salurkan keluh kesah, saran pembangunan, pengaduan layanan publik, atau usulan inovasi demi kemakmuran Surokidul. Pantau proses disposisi aspirasi Anda secara real-time.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Aspirasi Form (Left / Col-span 5) -->
+                <div class="lg:col-span-5 bg-slate-900 border border-darkBorder rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+                    <div class="border-b border-darkBorder pb-4 mb-6">
+                        <h4 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-pen-to-square text-brand-400"></i>
+                            <span data-i18n="form-asp-title">Form Isian Aspirasi</span>
+                        </h4>
+                        <p class="text-xs text-slate-400 mt-1" data-i18n="form-asp-subtitle">Isi data diri dan esensi aduan/usul Anda secara lengkap.</p>
+                    </div>
+
+                    <form onsubmit="handleAspSubmit(event)" id="aspForm" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5" data-i18n="form-nama">Nama Lengkap (Bisa Anonim)</label>
+                            <input type="text" id="aspNama" placeholder="Contoh: Budi Santoso" class="w-full px-4 py-3 bg-slate-950 border border-darkBorder rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm text-slate-200 transition-all placeholder-slate-600">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5" data-i18n="form-telepon">No. WhatsApp</label>
+                                <input type="tel" id="aspTelepon" required placeholder="08xxxxxxxxx" class="w-full px-4 py-3 bg-slate-950 border border-darkBorder rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm text-slate-200 transition-all placeholder-slate-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5" data-i18n="form-dukuh">Wilayah Dukuh</label>
+                                <select id="aspDukuh" required class="w-full px-4 py-3 bg-slate-950 border border-darkBorder rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm text-slate-200 transition-all">
+                                    <option value="Surokidul Krajan">Surokidul Krajan</option>
+                                    <option value="Surokidul Wetan">Surokidul Wetan</option>
+                                    <option value="Surokidul Lor">Surokidul Lor</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5" data-i18n="form-kategori">Kategori Pengaduan / Aspirasi</label>
+                            <select id="aspKategori" required class="w-full px-4 py-3 bg-slate-950 border border-darkBorder rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm text-slate-200 transition-all">
+                                <option value="Infrastruktur & Jalan" data-i18n="cat-infra">Infrastruktur & Jalan</option>
+                                <option value="Layanan Publik & Sosial" data-i18n="cat-layanan">Layanan Publik & Sosial</option>
+                                <option value="Pertanian & Irigasi" data-i18n="cat-tani">Pertanian & Irigasi</option>
+                                <option value="Keuangan & APBDes" data-i18n="cat-dana">Keuangan & APBDes</option>
+                                <option value="Saran & Usul Lainnya" data-i18n="cat-lainnya">Saran & Usul Lainnya</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5" data-i18n="form-isi">Isi Aduan / Uraian Aspirasi</label>
+                            <textarea id="aspIsi" required rows="4" placeholder="..." class="w-full px-4 py-3 bg-slate-950 border border-darkBorder rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm text-slate-200 transition-all placeholder-slate-600"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg hover:shadow-brand-900/30 flex items-center justify-center gap-2 text-sm mt-2">
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                            <span data-i18n="btn-kirim-asp">Kirim ke Panel BPD</span>
+                        </button>
+                    </form>
+
+                    <!-- Alert message on successful submission -->
+                    <div id="aspSuccessAlert" class="hidden absolute inset-0 bg-slate-900/95 backdrop-blur-sm rounded-3xl flex flex-col items-center justify-center p-6 text-center z-20">
+                        <div class="w-16 h-16 bg-brand-950 text-brand-400 rounded-full flex items-center justify-center mb-4 border border-brand-800">
+                            <i class="fa-solid fa-circle-check text-3xl"></i>
+                        </div>
+                        <h5 class="text-xl font-bold text-white mb-2" data-i18n="alert-success-title">Aspirasi Terkirim!</h5>
+                        <p class="text-xs text-slate-300 max-w-xs mb-4 leading-relaxed" data-i18n="alert-success-desc">Aspirasi Anda berhasil masuk database BPD Surokidul. Berikut kode pelacakan Anda:</p>
+                        <div class="bg-slate-950 border border-darkBorder px-4 py-2 rounded-xl text-brand-400 font-mono text-sm font-bold mb-6 tracking-wider" id="aspSuccessCode">
+                            SKD-ASP-9831
+                        </div>
+                        <button onclick="resetAspForm()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-xs transition-all border border-darkBorder">
+                            <span data-i18n="btn-kembali">Kirim Aduan Baru</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tracker List (Right / Col-span 7) -->
+                <div class="lg:col-span-7 bg-slate-900 border border-darkBorder rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-darkBorder pb-5">
+                        <div>
+                            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-clock-rotate-left text-brand-400"></i>
+                                <span data-i18n="track-title">Pelacakan Aspirasi Publik</span>
+                            </h4>
+                            <p class="text-xs text-slate-400 mt-1" data-i18n="track-subtitle">Alur transparansi penanganan aspirasi yang masuk ke BPD.</p>
+                        </div>
+                        <!-- Simple filter tag -->
+                        <div class="flex gap-2">
+                            <button onclick="filterAspirasi('semua')" id="filt-semua" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-brand-600 text-white" data-i18n="filt-semua">Semua</button>
+                            <button onclick="filterAspirasi('Proses')" id="filt-proses" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-slate-950 text-slate-400 border border-darkBorder hover:border-slate-700" data-i18n="filt-proses">Proses</button>
+                            <button onclick="filterAspirasi('Selesai')" id="filt-selesai" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-slate-950 text-slate-400 border border-darkBorder hover:border-slate-700" data-i18n="filt-selesai">Selesai</button>
+                        </div>
+                    </div>
+
+                    <!-- List Container -->
+                    <div class="space-y-4 max-h-[460px] overflow-y-auto pr-1" id="aspirasiList">
+                        <!-- Dynamic item will render here. Below is skeleton/fallback -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGULASI & PERDES SECTION -->
+    <section id="regulasi" class="bg-slate-950 py-16 lg:py-24 border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-950 border border-brand-800 text-brand-400 uppercase tracking-widest gap-2">
+                    <i class="fa-solid fa-gavel text-[10px]"></i> <span data-i18n="reg-badge">Hukum & Kebijakan Desa</span>
+                </span>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white">
+                    <span data-i18n="reg-title-1">E-Katalog</span> <span class="text-brand-400" data-i18n="reg-title-2">Regulasi Surokidul</span>
+                </h3>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-light" data-i18n="reg-desc">
+                    Akses keterbukaan draf rancangan peraturan, Peraturan Desa (Perdes), Surat Keputusan BPD, serta berita acara Musrenbangdes Surokidul secara terperinci.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 border border-darkBorder rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+                <!-- Search and Filters -->
+                <div class="flex flex-col md:flex-row gap-4 justify-between items-center pb-2">
+                    <div class="relative w-full md:w-96">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                        <input type="text" id="regSearchInput" oninput="searchRegulasi()" placeholder="Cari regulasi..." class="w-full pl-11 pr-4 py-3 bg-slate-950 border border-darkBorder focus:border-brand-500 rounded-xl outline-none text-xs text-slate-200 transition-all font-sans">
+                    </div>
+                    <div class="flex gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 font-sans">
+                        <button onclick="filterRegCategory('semua')" id="reg-filt-all" class="px-3.5 py-2 bg-brand-600 text-white rounded-xl text-xs font-bold transition-all shrink-0" data-i18n="reg-all">Semua Dokumen</button>
+                        <button onclick="filterRegCategory('Perdes')" id="reg-filt-perdes" class="px-3.5 py-2 bg-slate-950 border border-darkBorder text-slate-400 hover:text-white rounded-xl text-xs font-semibold transition-all shrink-0" data-i18n="reg-perdes">Peraturan Desa</button>
+                        <button onclick="filterRegCategory('Keputusan BPD')" id="reg-filt-kep" class="px-3.5 py-2 bg-slate-950 border border-darkBorder text-slate-400 hover:text-white rounded-xl text-xs font-semibold transition-all shrink-0" data-i18n="reg-kep">Keputusan BPD</button>
+                    </div>
+                </div>
+
+                <!-- Table View for Desktop -->
+                <div class="overflow-x-auto hidden sm:block">
+                    <table class="w-full text-left text-sm text-slate-300">
+                        <thead class="text-xs text-slate-400 uppercase tracking-wider bg-slate-950 border border-darkBorder">
+                            <tr>
+                                <th scope="col" class="px-6 py-4" data-i18n="table-nomor">Nomor & Tahun</th>
+                                <th scope="col" class="px-6 py-4" data-i18n="table-judul">Judul Regulasi</th>
+                                <th scope="col" class="px-6 py-4" data-i18n="table-kategori">Kategori</th>
+                                <th scope="col" class="px-6 py-4 text-center" data-i18n="table-status">Status Hukum</th>
+                                <th scope="col" class="px-6 py-4 text-center" data-i18n="table-unduh">Unduh</th>
+                            </tr>
+                        </thead>
+                        <tbody id="regulasiTableBody" class="divide-y divide-darkBorder">
+                            <!-- Dynamic Content -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Mobile Cards List (Responsive Card Layout) -->
+                <div class="sm:hidden space-y-4" id="regulasiCardsContainer">
+                    <!-- Dynamic Content For Mobile View -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORGANIZATIONAL CHART SECTION -->
+    <section id="keanggotaan" class="bg-slate-950 py-16 lg:py-24 border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-950 border border-brand-800 text-brand-400 uppercase tracking-widest gap-2">
+                    <i class="fa-solid fa-users text-[10px]"></i> <span data-i18n="team-badge">Sinergi Keanggotaan</span>
+                </span>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white">
+                    <span data-i18n="team-title-1">Pengurus & Anggota</span> <span class="text-brand-400" data-i18n="team-title-2">BPD Surokidul</span>
+                </h3>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-light" data-i18n="team-desc">
+                    Kenali jajaran perwakilan legislatif di BPD Desa Surokidul periode aktif yang bertugas menjembatani suara warga dan pemerintah desa.
+                </p>
+            </div>
+
+            <!-- Interactive Chart Grid -->
+            <div class="space-y-12">
+                <!-- Tier 1: Ketua -->
+                <div class="flex justify-center" id="tier-1">
+                    <!-- Cards are rendered dynamically -->
+                </div>
+
+                <!-- Tier 2: Wakil & Sekretaris -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="tier-2">
+                    <!-- Cards are rendered dynamically -->
+                </div>
+
+                <!-- Tier 3: Anggota-Anggota -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="tier-3">
+                    <!-- Cards are rendered dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS & AGENDA SECTION -->
+    <section id="berita" class="bg-slate-950 py-16 lg:py-24 border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div class="max-w-xl space-y-4 text-center md:text-left">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-950 border border-brand-800 text-brand-400 uppercase tracking-widest gap-2">
+                        <i class="fa-solid fa-newspaper text-[10px]"></i> <span data-i18n="news-badge">Warta Surokidul</span>
+                    </span>
+                    <h3 class="text-2xl sm:text-4xl font-extrabold text-white">
+                        <span data-i18n="news-title-1">Berita & Agenda</span> <span class="text-brand-400" data-i18n="news-title-2">Terupdate</span>
+                    </h3>
+                    <p class="text-sm text-slate-300 leading-relaxed font-light" data-i18n="news-desc">
+                        Informasi lengkap seputar hasil keputusan rapat, sosialisasi program, jalannya Musyawarah Desa, dan dokumentasi kerja lapangan pengurus BPD Surokidul.
+                    </p>
+                </div>
+                <!-- External News Link Button -->
+                <div class="flex justify-center md:justify-end">
+                    <a href="https://pagerbarang.tegalkab.go.id/public/desa/desa-surokidul" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white border border-darkBorder rounded-2xl text-xs font-bold transition-all shadow-xl hover:shadow-brand-950/20">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-brand-400"></i>
+                        <span data-i18n="btn-portal-desa">Portal Berita Surokidul (Kecamatan)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- News Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="newsGridContainer">
+                <!-- Rendered dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-darkBorder py-12 text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-darkBorder">
+                <!-- Branding column -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-white p-1 rounded-xl w-10 h-10 flex items-center justify-center overflow-hidden border border-slate-700">
+                            <img src="images.jpg" alt="Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/ffffff/052e16?text=BPD'">
+                        </div>
+                        <div>
+                            <h5 class="text-sm font-extrabold text-white">BPD Surokidul</h5>
+                            <p class="text-[10px] text-slate-500 uppercase tracking-widest font-medium">Kec. Pagerbarang, Kab. Tegal</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed font-light" data-i18n="foot-desc">
+                        Portal ini diinisiasi oleh Badan Permusyawaratan Desa Surokidul sebagai perwujudan transparansi publik, kebebasan berekspresi, serta saluran asimilasi aspirasi digital untuk mempercepat pembangunan desa.
+                    </p>
+                </div>
+                <!-- Contact info column -->
+                <div class="md:col-span-4 space-y-4 font-sans">
+                    <h6 class="text-xs font-bold text-white uppercase tracking-wider" data-i18n="foot-kontak-title">Kontak & Sekretariat</h6>
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-map-location-dot text-brand-400 mt-0.5"></i>
+                            <span data-i18n="foot-alamat">Jl. Raya Surokidul No. 12, Pagerbarang, Kabupaten Tegal, Jawa Tengah, Kode Pos 52454</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-brand-400"></i>
+                            <span>bpd.surokidul@gmail.com</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-brand-400"></i>
+                            <span>+62 831-3218-6081 (Sekretariat)</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Quick links / Admin gateway -->
+                <div class="md:col-span-3 space-y-4 font-sans text-center md:text-left">
+                    <h6 class="text-xs font-bold text-white uppercase tracking-wider" data-i18n="foot-layanan-title">Akses Cepat</h6>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#hero" class="hover:text-brand-400 transition-colors" data-i18n="nav-home">Beranda</a></li>
+                        <li><a href="#aspirasi" class="hover:text-brand-400 transition-colors" data-i18n="nav-aspirasi">E-Aspirasi</a></li>
+                        <li><a href="#regulasi" class="hover:text-brand-400 transition-colors" data-i18n="nav-regulasi">Regulasi</a></li>
+                    </ul>
+                    <div class="pt-2">
+                        <button onclick="openAdminModal()" class="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-900 border border-darkBorder text-slate-300 hover:text-white rounded-xl text-[10px] font-bold tracking-wide transition-all uppercase hover:border-brand-500">
+                            <i class="fa-solid fa-circle-user text-brand-400 text-xs"></i>
+                            <span data-i18n="btn-portal-admin">Masuk Portal Admin</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-medium text-slate-500">
+                <p>&copy; 2026 BPD Desa Surokidul. All Rights Reserved.</p>
+                <div class="flex space-x-4">
+                    <span data-i18n="foot-copyright">Dibuat Berdasarkan Keterbukaan Informasi Publik RI</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <div class="fixed bottom-6 right-6 z-40 group flex flex-col items-end">
+        <!-- Floating Tooltip -->
+        <span class="mb-2 bg-slate-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-xl border border-darkBorder shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none transform translate-y-1 group-hover:translate-y-0 whitespace-nowrap" id="wa-tooltip-txt" data-i18n="wa-tooltip">
+            Hubungi Hubmas BPD Surokidul
+        </span>
+        <!-- Floating Button -->
+        <a href="https://wa.me/6283132186081?text=Halo%20Admin%20BPD%20Desa%20Surokidul%2C%20saya%20ingin%20berdiskusi%20mengenai..." target="_blank" class="w-14 h-14 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-3xl hover:shadow-emerald-950/40 transition-all duration-300 transform hover:scale-115 relative focus:outline-none">
+            <span class="absolute inset-0 rounded-full bg-emerald-600 animate-ping opacity-25"></span>
+            <i class="fa-brands fa-whatsapp text-2xl relative z-10"></i>
+        </a>
+    </div>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="adminModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative w-full max-w-md bg-slate-900 border border-darkBorder rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-darkBorder pb-4">
+                <h5 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-brand-400"></i>
+                    <span data-i18n="admin-portal-title">Otoritas Administratif</span>
+                </h5>
+                <button onclick="closeAdminModal()" class="w-8 h-8 rounded-xl bg-slate-950 border border-darkBorder text-slate-400 hover:text-white flex items-center justify-center transition-all">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4 py-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1" data-i18n="admin-username">Username</label>
+                    <input type="text" id="admin-user" required placeholder="admin" class="w-full px-4 py-3 border border-slate-800 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm transition-all bg-slate-950 text-white placeholder-slate-600 font-sans">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1" data-i18n="admin-password">Kata Sandi</label>
+                    <input type="password" id="admin-pass" required placeholder="••••••••" class="w-full px-4 py-3 border border-slate-800 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm transition-all bg-slate-950 text-white placeholder-slate-600 font-sans">
+                </div>
+                
+                <div id="admin-error-msg" class="text-xs text-red-400 hidden bg-red-950/50 p-2.5 rounded-lg border border-red-900">
+                    <i class="fa-solid fa-triangle-exclamation mr-1"></i> <span data-i18n="admin-error">Username atau Password salah! (Simulasi: admin / bpdsuro008)</span>
+                </div>
+
+                <div class="text-[10px] text-slate-400 bg-slate-950 p-2 rounded-lg text-center border border-slate-900 font-sans">
+                    <span data-i18n="admin-tip">Kredensial Bawaan Simulasi:</span> <strong class="text-brand-400 font-semibold">admin / bpdsuro008</strong>
+                </div>
+
+                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition-all shadow-md">
+                    <span data-i18n="btn-login">Masuk ke Panel Kontrol</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD MODAL -->
+    <div id="adminDashboard" class="hidden fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md overflow-y-auto p-4 flex items-center justify-center">
+        <div class="w-full max-w-5xl bg-slate-900 border border-darkBorder rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 my-8">
+            <div class="flex items-center justify-between border-b border-darkBorder pb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2.5 bg-brand-950 text-brand-400 rounded-xl border border-brand-800">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-base sm:text-lg font-bold text-white" data-i18n="dash-title">BPD Surokidul Console Dashboard</h5>
+                        <p class="text-[10px] text-slate-400 font-mono tracking-wider">SECURE NODE v2.1 // AUTH: ADMINISTRATOR</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminDashboard()" class="px-4 py-2 rounded-xl bg-slate-950 border border-darkBorder text-slate-400 hover:text-white hover:border-red-500 transition-all text-xs font-bold flex items-center gap-1.5 uppercase tracking-wide">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span data-i18n="btn-close">Tutup Portal</span>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Left Control: Quick Action & Stat (Col-span 4) -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="bg-slate-950 border border-darkBorder p-5 rounded-2xl">
+                        <h6 class="text-xs font-extrabold text-white uppercase tracking-wider mb-3" data-i18n="dash-actions">Aksi Cepat Admin</h6>
+                        <div class="space-y-2">
+                            <button onclick="alert('Simulasi: Tambah regulasi baru berhasil dibuka (Formulir khusus admin)')" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 border border-darkBorder text-slate-200 hover:text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-plus text-brand-400 text-[10px]"></i>
+                                <span data-i18n="btn-add-reg">Tambah Regulasi</span>
+                            </button>
+                            <button onclick="alert('Simulasi: Cetak berkas Laporan Kinerja BPD Surokidul semester 1 berhasil digenerasi')" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 border border-darkBorder text-slate-200 hover:text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-print text-[10px]"></i>
+                                <span data-i18n="btn-print-asp">Cetak Rekap Aspirasi</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-slate-950 border border-darkBorder p-5 rounded-2xl space-y-3">
+                        <h6 class="text-xs font-extrabold text-white uppercase tracking-wider" data-i18n="dash-info">Ringkasan Sistem</h6>
+                        <div class="space-y-2 text-[11px]">
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Node Server</span>
+                                <span class="text-brand-400 font-bold font-mono">ONLINE</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Antrean Verifikasi</span>
+                                <span class="text-yellow-400 font-bold font-mono" id="dash-queue-cnt">1 Antrean</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Database Engine</span>
+                                <span class="text-slate-300 font-bold font-mono">InMemory Storage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Control: Aspiration Decision Engine (Col-span 8) -->
+                <div class="lg:col-span-8 bg-slate-950 border border-darkBorder p-5 rounded-2xl space-y-4">
+                    <h6 class="text-xs font-extrabold text-white uppercase tracking-wider border-b border-darkBorder pb-2 flex items-center gap-1.5">
+                        <i class="fa-solid fa-sliders text-brand-400"></i>
+                        <span data-i18n="dash-man-title">Kelola & Jawab Aspirasi</span>
+                    </h6>
+
+                    <div class="space-y-4" id="adminAspirasiList">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ARTICLE & DETAIL MODALS -->
+    <div id="generalModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative w-full max-w-2xl bg-slate-900 border border-darkBorder rounded-3xl p-6 sm:p-8 shadow-2xl space-y-5 overflow-y-auto max-h-[90vh]">
+            <div class="flex items-center justify-between border-b border-darkBorder pb-4">
+                <span id="generalModalLabel" class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-brand-950 border border-brand-800 text-brand-400 uppercase tracking-widest">WARTA DESA</span>
+                <button onclick="closeGeneralModal()" class="w-8 h-8 rounded-xl bg-slate-950 border border-darkBorder text-slate-400 hover:text-white flex items-center justify-center transition-all">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+            <div class="space-y-4 text-slate-200">
+                <h4 id="generalModalTitle" class="text-xl sm:text-2xl font-extrabold text-white leading-tight">Detail Berita BPD Surokidul</h4>
+                <div class="flex items-center space-x-3 text-xs text-slate-400">
+                    <span id="generalModalAuthor" class="font-bold text-brand-400">Sekretariat BPD</span>
+                    <span>&bull;</span>
+                    <span id="generalModalDate">Sabtu, 28 Maret 2026</span>
+                </div>
+                <!-- Image inside modal -->
+                <div id="generalModalImgContainer" class="w-full h-48 rounded-2xl overflow-hidden border border-darkBorder relative bg-slate-950">
+                    <img id="generalModalImg" src="https://placehold.co/800x400/0b0f19/ffffff?text=BPD+Surokidul" alt="Detail Image" class="w-full h-full object-cover">
+                </div>
+                <!-- Main Body -->
+                <p id="generalModalContent" class="text-sm text-slate-300 leading-relaxed font-light whitespace-pre-line">
+                    Isi detail berita akan termuat di sini.
+                </p>
+                <!-- External Redirect Links -->
+                <div id="generalModalActionContainer" class="pt-4 border-t border-darkBorder flex justify-end">
+                    <a id="generalModalActionBtn" href="https://pagerbarang.tegalkab.go.id/public/desa/desa-surokidul" target="_blank" class="inline-flex items-center gap-1.5 px-4.5 py-2.5 bg-slate-950 hover:bg-slate-800 border border-darkBorder hover:border-slate-700 text-slate-300 hover:text-white rounded-xl text-xs font-bold transition-all">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-brand-400"></i>
+                        <span data-i18n="btn-original-news">Buka Sumber Berita Asli</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEMBER DETAILS MODAL -->
+    <div id="memberModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative w-full max-w-md bg-slate-900 border border-darkBorder rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-darkBorder pb-4">
+                <h5 class="text-sm font-extrabold text-white uppercase tracking-wider" data-i18n="mem-modal-title">Biodata & Tupoksi Anggota</h5>
+                <button onclick="closeMemberModal()" class="w-8 h-8 rounded-xl bg-slate-950 border border-darkBorder text-slate-400 hover:text-white flex items-center justify-center transition-all">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+            <div class="flex flex-col items-center text-center space-y-4">
+                <!-- Member Avatar -->
+                <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-brand-500 bg-slate-950 shadow-xl" id="memberModalImgContainer">
+                    <img id="memberModalImg" src="https://placehold.co/150x150/0b0f19/ffffff?text=User" alt="Profil" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white" id="memberModalName">Nama Lengkap</h4>
+                    <p class="text-xs text-brand-400 font-extrabold uppercase tracking-widest mt-0.5" id="memberModalRole">Jabatan</p>
+                    <p class="text-[10px] text-slate-500 font-mono tracking-widest mt-1" id="memberModalDapil">DAPIL: Surokidul Krajan</p>
+                </div>
+                <!-- Job Description (Tupoksi) -->
+                <div class="w-full text-left bg-slate-950 p-4 rounded-2xl border border-darkBorder space-y-2">
+                    <p class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fa-solid fa-briefcase text-brand-400 text-[10px]"></i>
+                        <span data-i18n="mem-tupoksi">Tugas Pokok & Fungsi</span>
+                    </p>
+                    <p class="text-xs text-slate-300 leading-relaxed font-light" id="memberModalTupoksi">Deskripsi lengkap mengenai kewajiban jabatan ini.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const localizationData = {
+            "id": {
+                // Navigation
+                "nav-home": "Beranda",
+                "nav-aspirasi": "E-Aspirasi",
+                "nav-regulasi": "Regulasi",
+                "nav-about": "Anggota BPD",
+                "nav-news": "Berita & Agenda",
+                // Hero
+                "hero-badge": "Portal Digital Legislatif Desa",
+                "hero-title-1": "Suara Anda,",
+                "hero-title-2": "Masa Depan Surokidul",
+                "hero-desc": "Selamat datang di portal resmi Badan Permusyawaratan Desa (BPD) Surokidul, Kec. Pagerbarang, Kab. Tegal. Kami hadir untuk menampung aspirasi rakyat, merumuskan regulasi lokal, dan mengawal transparansi roda pemerintahan desa.",
+                "btn-hero-aspirasi": "Kirim Aspirasi Sekarang",
+                "btn-hero-reg": "Lihat Katalog Regulasi",
+                "mock-title": "Statistik Bulan Ini",
+                "mock-asp": "Aspirasi Masuk",
+                "mock-done": "Selesai Dibahas",
+                "mock-highlight-title": "Musyawarah Terdekat",
+                "mock-highlight-desc": "Pembahasan Draf APBDes Surokidul TA 2026",
+                "mock-time": "Sabtu, Jam 09:00 WIB",
+                // Stat
+                "stat-aspirasi": "Total Aspirasi Masuk",
+                "stat-regulasi": "Peraturan Desa Disahkan",
+                "stat-musdes": "Musyawarah Terlaksana",
+                "stat-puas": "Tingkat Tindak Lanjut",
+                // Aspirasi
+                "asp-section-badge": "Transparansi & Interaksi Publik",
+                "asp-section-title-1": "Layanan",
+                "asp-section-title-2": "E-Aspirasi Surokidul",
+                "asp-section-desc": "Salurkan keluh kesah, saran pembangunan, pengaduan layanan publik, atau usulan inovasi demi kemakmuran Surokidul. Pantau proses disposisi aspirasi Anda secara real-time.",
+                "form-asp-title": "Form Isian Aspirasi",
+                "form-asp-subtitle": "Isi data diri dan esensi aduan/usul Anda secara lengkap.",
+                "form-nama": "Nama Lengkap (Bisa Anonim)",
+                "form-telepon": "No. WhatsApp",
+                "form-dukuh": "Wilayah Dukuh",
+                "form-kategori": "Kategori Pengaduan / Aspirasi",
+                "cat-infra": "Infrastruktur & Jalan",
+                "cat-layanan": "Layanan Publik & Sosial",
+                "cat-tani": "Pertanian & Irigasi",
+                "cat-dana": "Keuangan & APBDes",
+                "cat-lainnya": "Saran & Usul Lainnya",
+                "form-isi": "Isi Aduan / Uraian Aspirasi",
+                "btn-kirim-asp": "Kirim ke Panel BPD",
+                "alert-success-title": "Aspirasi Terkirim!",
+                "alert-success-desc": "Aspirasi Anda berhasil masuk database BPD Surokidul. Berikut kode pelacakan Anda:",
+                "btn-kembali": "Kirim Aduan Baru",
+                "track-title": "Pelacakan Aspirasi Publik",
+                "track-subtitle": "Alur transparansi penanganan aspirasi yang masuk ke BPD.",
+                "filt-semua": "Semua",
+                "filt-proses": "Proses",
+                "filt-selesai": "Selesai",
+                // Regulasi
+                "reg-badge": "Hukum & Kebijakan Desa",
+                "reg-title-1": "E-Katalog",
+                "reg-title-2": "Regulasi Surokidul",
+                "reg-desc": "Akses keterbukaan draf rancangan peraturan, Peraturan Desa (Perdes), Surat Keputusan BPD, serta berita acara Musrenbangdes Surokidul secara terperinci.",
+                "reg-all": "Semua Dokumen",
+                "reg-perdes": "Peraturan Desa",
+                "reg-kep": "Keputusan BPD",
+                "table-nomor": "Nomor & Tahun",
+                "table-judul": "Judul Regulasi",
+                "table-kategori": "Kategori",
+                "table-status": "Status Hukum",
+                "table-unduh": "Unduh",
+                "status-berlaku": "Berlaku",
+                "status-draf": "Rancangan (Draf)",
+                // Keanggotaan
+                "team-badge": "Sinergi Keanggotaan",
+                "team-title-1": "Pengurus & Anggota",
+                "team-title-2": "BPD Surokidul",
+                "team-desc": "Kenali jajaran perwakilan legislatif di BPD Desa Surokidul periode aktif yang bertugas menjembatani suara warga dan pemerintah desa.",
+                "mem-tupoksi": "Tugas Pokok & Fungsi",
+                "mem-modal-title": "Biodata & Tupoksi Anggota",
+                // Berita
+                "news-badge": "Warta Surokidul",
+                "news-title-1": "Berita & Agenda",
+                "news-title-2": "Terupdate",
+                "news-desc": "Informasi lengkap seputar hasil keputusan rapat, sosialisasi program, jalannya Musyawarah Desa, dan dokumentasi kerja lapangan pengurus BPD Surokidul.",
+                "btn-portal-desa": "Portal Berita Surokidul (Kecamatan)",
+                "btn-original-news": "Buka Sumber Berita Asli",
+                // Footer
+                "foot-desc": "Portal ini diinisiasi oleh Badan Permusyawaratan Desa Surokidul sebagai perwujudan transparansi publik, kebebasan berekspresi, serta saluran asimilasi aspirasi digital untuk mempercepat pembangunan desa.",
+                "foot-kontak-title": "Kontak & Sekretariat",
+                "foot-alamat": "Jl. Raya Surokidul No. 12, Pagerbarang, Kabupaten Tegal, Jawa Tengah, Kode Pos 52454",
+                "foot-layanan-title": "Akses Cepat",
+                "btn-portal-admin": "Masuk Portal Admin",
+                "foot-copyright": "Dibuat Berdasarkan Keterbukaan Informasi Publik RI",
+                // WA Float Tooltip
+                "wa-tooltip": "Hubungi Hubmas BPD Surokidul",
+                // Admin Modal
+                "admin-portal-title": "Otoritas Administratif",
+                "admin-username": "Username",
+                "admin-password": "Kata Sandi",
+                "admin-error": "Username atau Password salah! (Simulasi: admin / bpdsuro008)",
+                "admin-tip": "Kredensial Bawaan Simulasi:",
+                "btn-login": "Masuk ke Panel Kontrol",
+                // Admin Dashboard
+                "dash-title": "BPD Surokidul Console Dashboard",
+                "btn-close": "Tutup Portal",
+                "dash-actions": "Aksi Cepat Admin",
+                "btn-add-reg": "Tambah Regulasi",
+                "btn-print-asp": "Cetak Rekap Aspirasi",
+                "dash-info": "Ringkasan Sistem",
+                "dash-man-title": "Kelola & Jawab Aspirasi"
+            },
+            "en": {
+                // Navigation
+                "nav-home": "Home",
+                "nav-aspirasi": "E-Aspirations",
+                "nav-regulasi": "Regulations",
+                "nav-about": "BPD Council",
+                "nav-news": "News & Agendas",
+                // Hero
+                "hero-badge": "Village Legislative Digital Portal",
+                "hero-title-1": "Your Voice,",
+                "hero-title-2": "Future of Surokidul",
+                "hero-desc": "Welcome to the official portal of Surokidul Village Representative Council (BPD), Pagerbarang District, Tegal Regency. We represent the citizens' voice, construct local village laws, and supervise local administrative accountability.",
+                "btn-hero-aspirasi": "Submit Aspiration Now",
+                "btn-hero-reg": "Browse Regulations Catalog",
+                "mock-title": "Monthly Statistics",
+                "mock-asp": "Total Submission",
+                "mock-done": "Closed/Resolved",
+                "mock-highlight-title": "Upcoming Assembly",
+                "mock-highlight-desc": "Review Draft of APBDes Surokidul FY 2026",
+                "mock-time": "Saturday, 09:00 AM",
+                // Stat
+                "stat-aspirasi": "Total Aspirations Received",
+                "stat-regulasi": "Regulations Passed",
+                "stat-musdes": "Councils Executed",
+                "stat-puas": "Resolution Rate",
+                // Aspirasi
+                "asp-section-badge": "Transparency & Public Interaction",
+                "asp-section-title-1": "E-Aspiration",
+                "asp-section-title-2": "Service of Surokidul",
+                "asp-section-desc": "Report village issues, public utilities, agricultural irrigation problems, budget feedback, or suggest innovations. Track real-time progress on your feedback status.",
+                "form-asp-title": "Aspiration Intake Form",
+                "form-asp-subtitle": "Provide your name/anon, WA, and details of the claim.",
+                "form-nama": "Full Name (Optional / Anonymous)",
+                "form-telepon": "WhatsApp Number",
+                "form-dukuh": "Neighborhood Ward",
+                "form-kategori": "Aspiration / Report Category",
+                "cat-infra": "Roads & Infrastructure",
+                "cat-layanan": "Social & Public Utilities",
+                "cat-tani": "Irrigation & Farming",
+                "cat-dana": "Budget & Finance APBDes",
+                "cat-lainnya": "Others & Innovation Suggestions",
+                "form-isi": "Explanation/Uraian",
+                "btn-kirim-asp": "Submit to BPD Console",
+                "alert-success-title": "Submission Successful!",
+                "alert-success-desc": "Your message is queued. Below is your unique tracking hash key:",
+                "btn-kembali": "Submit Another Report",
+                "track-title": "Public Feedback Tracker",
+                "track-subtitle": "Dynamic progress list of BPD village response workflow.",
+                "filt-semua": "All",
+                "filt-proses": "In Review",
+                "filt-selesai": "Resolved",
+                // Regulasi
+                "reg-badge": "Village Jurisdictions",
+                "reg-title-1": "E-Catalog",
+                "reg-title-2": "Surokidul Regulations",
+                "reg-desc": "Access full archives and downloadable pdfs of active village decrees, draft proposals, and financial statements.",
+                "reg-all": "All Documents",
+                "reg-perdes": "Village Decrees",
+                "reg-kep": "BPD Decisions",
+                "table-nomor": "Code & Year",
+                "table-judul": "Title of Document",
+                "table-kategori": "Category",
+                "table-status": "Legal Status",
+                "table-unduh": "Download",
+                "status-berlaku": "Active",
+                "status-draf": "Proposal Draft",
+                // Keanggotaan
+                "team-badge": "Collaborative Synergy",
+                "team-title-1": "Council & Members",
+                "team-title-2": "BPD Surokidul",
+                "team-desc": "Meet our dedicated assembly members working to translate your ideas into village developmental success.",
+                "mem-tupoksi": "Duties & Functions",
+                "mem-modal-title": "Member Bio & Work Descriptions",
+                // Berita
+                "news-badge": "Surokidul Updates",
+                "news-title-1": "News & Scheduled",
+                "news-title-2": "Agendas",
+                "news-desc": "Read active summaries, workshop conclusions, public hearings, and local news around Pagerbarang District.",
+                "btn-portal-desa": "Surokidul News Portal (District)",
+                "btn-original-news": "Read Source Article",
+                // Footer
+                "foot-desc": "This portal is managed by the Surokidul Village Representative Council to promote transparent policy-making and ensure digital channels are available for direct democratic dialogue.",
+                "foot-kontak-title": "Contact & Secretariat",
+                "foot-alamat": "Jl. Raya Surokidul No. 12, Pagerbarang, Tegal Regency, Central Java, Zip Code 52454",
+                "foot-layanan-title": "Quick Access",
+                "btn-portal-admin": "Admin Portal Access",
+                "foot-copyright": "Constructed Under Indonesian Public Disclosure Acts",
+                // WA Float Tooltip
+                "wa-tooltip": "Contact Surokidul Representative Agent",
+                // Admin Modal
+                "admin-portal-title": "Administrative Authority",
+                "admin-username": "Username",
+                "admin-password": "Password",
+                "admin-error": "Incorrect Username or Password! (Simulation: admin / bpdsuro008)",
+                "admin-tip": "Default Simulation Creds:",
+                "btn-login": "Enter Administrative Console",
+                // Admin Dashboard
+                "dash-title": "BPD Surokidul Console Dashboard",
+                "btn-close": "Exit Portal",
+                "dash-actions": "Admin Action Engine",
+                "btn-add-reg": "Create Regulation Node",
+                "btn-print-asp": "Print Recaps",
+                "dash-info": "System Overviews",
+                "dash-man-title": "Track & Answer Aspiration Nodes"
+            }
+        };
+
+        let currentLanguage = "id";
+
+        // Membership Dataset (Adjusted to 5 members)
+        const memberDetails = [
+            { id: 1, name: "Tarono, S.H.", role: "Ketua BPD Surokidul", role_en: "BPD Surokidul Chairman", tier: 1, dapil: "Krajan I", avatar: "https://placehold.co/150x150/0f172a/ffffff?text=Tarono", tupoksi: "Memimpin seluruh koordinasi kebijakan, mewakili BPD dalam musyawarah eksternal, menandatangani surat keputusan desa, serta memegang koordinasi tertinggi pengambilan keputusan mufakat.", tupoksi_en: "Leads policy-making, coordinates internal council, acts as high liaison officer with the Village Chief, and authorizes all decrees." },
+            { id: 2, name: "Sudirno", role: "Wakil Ketua BPD", role_en: "Vice Chairman of BPD", tier: 2, dapil: "Krajan II", avatar: "https://placehold.co/150x150/0f172a/ffffff?text=Sudirno", tupoksi: "Membantu Ketua BPD dalam perancangan strategi kebijakan, memantau kinerja operasional antar divisi, serta menggantikan kewajiban pimpinan utama bila berhalangan hadir.", tupoksi_en: "Assists the Chairman in structural decisions, guides internal commission panels, and acts on behalf of the leader if unavailable." },
+            { id: 3, name: "Evi Fitriani, A.Md.", role: "Sekretaris BPD Surokidul", role_en: "Council Secretary", tier: 2, dapil: "Surokidul Lor", avatar: "https://placehold.co/150x150/0f172a/ffffff?text=Evi", tupoksi: "Mengelola administrasi persuratan, notulensi rapat umum BPD, tata kelola dokumen kearsipan regulasi, serta bertanggung jawab terhadap penyaluran disposisi surat dari dinas luar.", tupoksi_en: "Executes administrative workflows, minutes of meetings, maintains archive security, and directs official written correspondence." },
+            { id: 4, name: "Slamet Raharjo", role: "Ketua Bidang Pembangunan", role_en: "Head of Infrastructure Div", tier: 3, dapil: "Krajan I", avatar: "https://placehold.co/150x150/0f172a/ffffff?text=Slamet", tupoksi: "Mengawasi jalannya proyek infrastruktur, pembangunan drainase/jalan desa Surokidul, serta menyusun laporan penilaian kualitatif pembangunan berkala.", tupoksi_en: "Supervises capital projects, village road expansions, and conducts physical audits of agricultural facilities." },
+            { id: 5, name: "M. Abdul Haris", role: "Ketua Bidang Kesejahteraan", role_en: "Head of Social Welfare Div", tier: 3, dapil: "Surokidul Wetan", avatar: "https://placehold.co/150x150/0f172a/ffffff?text=Haris", tupoksi: "Menilai kelayakan bantuan sosial (PKH/BLT-DD), merawat sarana kesehatan posyandu, serta menampung usulan kegiatan seni, olahraga, dan kepemudaan desa.", tupoksi_en: "Validates social aids, assesses public health improvements, and facilitates sports/cultural community activities." }
+        ];
+
+        // Regulation Archive Dataset
+        const regulasiData = [
+            { id: 1, nomor: "Perdes No. 04 Tahun 2025", judul_id: "Rencana Anggaran Pendapatan dan Belanja Desa (APBDes) Surokidul TA 2026", judul_en: "Draft Budget Revenue and Expenditure Plan (APBDes) Surokidul FY 2026", tipe: "Perdes", status: "Berlaku", file: "#" },
+            { id: 2, nomor: "Perdes No. 03 Tahun 2025", judul_id: "Pemberdayaan dan Penataan Kelompok Tani dan Pemanfaatan Sumur Air Irigasi", judul_en: "Empowerment and Revitalization of Agriculture Unions & Irrigation Well Utility", tipe: "Perdes", status: "Berlaku", file: "#" },
+            { id: 3, nomor: "Perdes No. 01 Tahun 2025", judul_id: "Peraturan Pengelolaan Sampah Mandiri Tingkat Rukun Tetangga (RT)", judul_en: "By-Law on Decentralized Domestic Waste Management at Neighborhood Level (RT)", tipe: "Perdes", status: "Berlaku", file: "#" },
+            { id: 4, nomor: "Kep-BPD No. 02/XI/2025", judul_id: "Keputusan Hasil Evaluasi Laporan Kinerja Akhir Tahun Kepala Desa Surokidul", judul_en: "Executive Board Evaluation on Annual Village Chief Performance of Surokidul", tipe: "Keputusan BPD", status: "Berlaku", file: "#" },
+            { id: 5, nomor: "Perdes No. 05/Draf/2026", judul_id: "Rancangan Perdes Penertiban dan Keamanan Hewan Ternak di Sektor Permukiman", judul_en: "Draft Decree on Safe Restraints and Livestock Zoning inside Residential Quarters", tipe: "Perdes", status: "Rancangan (Draf)", file: "#" }
+        ];
+
+        // News & Agenda Dataset
+        const beritaData = [
+            { id: 1, tag: "MUSYAWARAH", title_id: "Musdes Surokidul Bahas Transparansi APBDes TA 2026 Berjalan Khidmat", title_en: "Surokidul Village Assembly on APBDes FY 2026 Concludes Orderly", tgl: "15 April 2026", desc_id: "Badan Permusyawaratan Desa Surokidul sukses mengadakan Musyawarah Desa bersama Kepala Desa, Tokoh Adat, dan Ketua RT di Balai Desa. Topik utama rapat membahas prioritas pengalokasian dana desa pada pembangunan sumur bor pertanian di dukuh wetan serta perbaikan aspal jalan penghubung utama Surokidul - Pagerbarang.", desc_en: "BPD Surokidul hosted a massive hearing inviting local unions and neighborhood heads. Key takeaways discuss the reallocation of village cash assets to repair primary connecting asphalt towards Pagerbarang.", link: "https://pagerbarang.tegalkab.go.id/public/desa/desa-surokidul" },
+            { id: 2, tag: "PEMANTAUAN", title_id: "BPD Tinjau Langsung Proyek Normalisasi Saluran Air Pertanian Surokidul Lor", title_en: "BPD Council Conducts Inspection of Irrigation Normalization Project", tgl: "03 Juni 2026", desc_id: "Anggota komisi pembangunan BPD Surokidul melakukan peninjauan fisik lapangan guna memantau kualitas pengerjaan dinding saluran irigasi beton. Langkah monitoring ini diambil untuk memastikan aliran air dari waduk utama dapat mengalir optimal tanpa hambatan sedimentasi menjelang musim tanam esok.", desc_en: "BPD Infrastructure Division inspected the concrete drainage construction today. The measure is critical to assure clean water circulation and prevent agricultural dry-out.", link: "https://pagerbarang.tegalkab.go.id/public/desa/desa-surokidul" },
+            { id: 3, tag: "SOSIALISASI", title_id: "Penyuluhan Bahaya Sampah Liar dan Sosialisasi Bak Sampah Organik Desa", title_en: "Public Educational Outreach on Domestic Trash and Waste Disposal", tgl: "22 Juni 2026", desc_id: "Mengandalkan regulasi Perdes No.01/2025 yang baru disahkan, jajaran BPD bekerja sama dengan Dinas Lingkungan Hidup mengadakan kelas penyuluhan sadar bersih. Acara ditutup dengan pembagian tong sampah komposter secara gratis kepada perwakilan Kepala Dusun.", desc_en: "Under the newly enacted sanitation law, the council collaborated with local environmental officers to hold training on hygiene and distribute bio-degradable bins.", link: "https://pagerbarang.tegalkab.go.id/public/desa/desa-surokidul" }
+        ];
+
+        // Core In-Memory database for User Aspirations (Preset simulation data)
+        let aspirasiData = [
+            { id: 101, kode: "SKD-ASP-01", pengirim: "Anonim Surokidul", tgl: "2026-06-18", telepon: "083132186081", dukuh: "Surokidul Lor", kategori: "Infrastruktur & Jalan", pesan_id: "Lampu penerangan jalan umum di perbatasan RT 04 mati total sejak pekan lalu. Mohon tindak lanjutnya karena jalanan menjadi sangat gelap saat malam hari.", pesan_en: "The public street lamp at RT 04 border is fully broken. The street is highly unsafe for night commutes.", status: "Selesai", tanggapan_id: "Sudah dikoordinasikan dengan teknisi Dinas Perhubungan dan dilakukan penggantian bola lampu merkuri baru pada tanggal 22 Juni 2026. Lampu kini menyala normal.", tanggapan_en: "Coordinated with electric division and replaced with brand new mercury bulb on June 22. Illuminations fully restored." },
+            { id: 102, kode: "SKD-ASP-02", pengirim: "Paryono (Ketua Kelompok Tani)", tgl: "2026-06-25", telepon: "0819xxxxxx", dukuh: "Surokidul Wetan", kategori: "Pertanian & Irigasi", pesan_id: "Debit air ke sawah bagian ujung timur sangat kecil akibat adanya timbunan lumpur di gorong-gorong jembatan utama.", pesan_en: "Water volume reaching eastern fields is extremely low due to excessive mud and sediment blockages under the main culvert.", status: "Proses", tanggapan_id: "Laporan masuk sedang dijadwalkan untuk dikerjakan secara gotong royong warga pada agenda kerja bakti hari Minggu terdekat.", tanggapan_en: "The report is accepted and scheduled for cooperative clean-up on the upcoming community service weekend." }
+        ];
+
+
+        // Initialization on Load
+        window.onload = function() {
+            setLanguage(currentLanguage);
+            renderRegulasi();
+            renderKeanggotaan();
+            renderBerita();
+            renderAspirasi();
+            renderAdminAspirasi();
+        };
+
+
+        // UI Translations & Language Switcher
+        function toggleLangDropdown() {
+            const dropdown = document.getElementById('langDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Close language dropdown if clicked outside
+        window.addEventListener('click', function(e) {
+            const btn = document.getElementById('langBtn');
+            const dropdown = document.getElementById('langDropdown');
+            if (btn && !btn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            document.getElementById('current-lang-label').innerText = lang.toUpperCase();
+            document.getElementById('langDropdown').classList.add('hidden');
+            setLanguage(lang);
+            
+            // Re-render items because data has double language attributes
+            renderRegulasi();
+            renderKeanggotaan();
+            renderBerita();
+            renderAspirasi();
+            renderAdminAspirasi();
+        }
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (localizationData[lang] && localizationData[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.setAttribute('placeholder', localizationData[lang][key]);
+                    } else {
+                        el.innerText = localizationData[lang][key];
+                    }
+                }
+            });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = "fa-solid fa-bars text-lg";
+            } else {
+                icon.className = "fa-solid fa-xmark text-lg";
+            }
+        }
+
+
+        // Render Regulations Catalog
+        let activeRegCategory = "semua";
+        function renderRegulasi() {
+            const tbody = document.getElementById('regulasiTableBody');
+            const mobileContainer = document.getElementById('regulasiCardsContainer');
+            const searchVal = document.getElementById('regSearchInput').value.toLowerCase();
+            
+            tbody.innerHTML = '';
+            mobileContainer.innerHTML = '';
+
+            const filtered = regulasiData.filter(item => {
+                const matchCategory = (activeRegCategory === 'semua' || item.tipe === activeRegCategory);
+                const title = currentLanguage === 'id' ? item.judul_id.toLowerCase() : item.judul_en.toLowerCase();
+                const num = item.nomor.toLowerCase();
+                const matchSearch = title.includes(searchVal) || num.includes(searchVal);
+                return matchCategory && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                const emptyHTML = `
+                    <tr>
+                        <td colspan="5" class="px-6 py-12 text-center text-xs text-slate-500 font-light font-sans">
+                            <i class="fa-solid fa-box-open text-2xl mb-2 text-slate-600 block"></i>
+                            Regulasi tidak ditemukan.
+                        </td>
+                    </tr>`;
+                tbody.innerHTML = emptyHTML;
+                mobileContainer.innerHTML = `<p class="text-center text-xs text-slate-500 font-sans py-8">Dokumen tidak ditemukan</p>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const displayTitle = currentLanguage === 'id' ? item.judul_id : item.judul_en;
+                const statusBadgeClass = item.status === 'Berlaku' 
+                    ? 'bg-emerald-950 text-emerald-400 border border-emerald-900' 
+                    : 'bg-yellow-950 text-yellow-400 border border-yellow-900';
+                
+                const statusLabel = item.status === 'Berlaku' 
+                    ? (currentLanguage === 'id' ? 'Berlaku' : 'Active') 
+                    : (currentLanguage === 'id' ? 'Rancangan (Draf)' : 'Proposal Draft');
+
+                // Desktop row markup
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-900/40 transition-colors";
+                tr.innerHTML = `
+                    <td class="px-6 py-4.5 font-mono text-xs font-bold text-slate-200">${item.nomor}</td>
+                    <td class="px-6 py-4.5 text-xs text-slate-300 leading-relaxed font-light">${displayTitle}</td>
+                    <td class="px-6 py-4.5 font-sans"><span class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-slate-950 border border-darkBorder text-slate-400">${item.tipe}</span></td>
+                    <td class="px-6 py-4.5 text-center"><span class="px-2.5 py-1 rounded-lg text-[10px] font-bold ${statusBadgeClass}">${statusLabel}</span></td>
+                    <td class="px-6 py-4.5 text-center">
+                        <button onclick="alert('Simulasi download file: ${item.nomor}')" class="text-brand-400 hover:text-white hover:bg-slate-950 p-2 rounded-xl transition-all border border-transparent hover:border-darkBorder">
+                            <i class="fa-solid fa-cloud-arrow-down text-base"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+
+                // Mobile Card markup
+                const mCard = document.createElement('div');
+                mCard.className = "p-4.5 bg-slate-950 border border-darkBorder rounded-2xl space-y-3";
+                mCard.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-mono font-bold text-slate-200">${item.nomor}</span>
+                        <span class="px-2 py-0.5 rounded-lg text-[9px] font-bold ${statusBadgeClass}">${statusLabel}</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed font-light">${displayTitle}</p>
+                    <div class="flex justify-between items-center pt-2 border-t border-slate-900/60">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">${item.tipe}</span>
+                        <button onclick="alert('Simulasi download file: ${item.nomor}')" class="flex items-center gap-1 text-[10px] font-bold text-brand-400">
+                            <i class="fa-solid fa-cloud-arrow-down"></i> DOWNLOAD
+                        </button>
+                    </div>
+                `;
+                mobileContainer.appendChild(mCard);
+            });
+        }
+
+        function filterRegCategory(cat) {
+            activeRegCategory = cat;
+            // update style buttons
+            const btns = {
+                'semua': 'reg-filt-all',
+                'Perdes': 'reg-filt-perdes',
+                'Keputusan BPD': 'reg-filt-kep'
+            };
+            Object.keys(btns).forEach(key => {
+                const el = document.getElementById(btns[key]);
+                if (key === cat) {
+                    el.className = "px-3.5 py-2 bg-brand-600 text-white rounded-xl text-xs font-bold transition-all shrink-0";
+                } else {
+                    el.className = "px-3.5 py-2 bg-slate-950 border border-darkBorder text-slate-400 hover:text-white rounded-xl text-xs font-semibold transition-all shrink-0";
+                }
+            });
+            renderRegulasi();
+        }
+
+        function searchRegulasi() {
+            renderRegulasi();
+        }
+
+
+        // Render BPD Member Chart
+        function renderKeanggotaan() {
+            const tier1 = document.getElementById('tier-1');
+            const tier2 = document.getElementById('tier-2');
+            const tier3 = document.getElementById('tier-3');
+
+            tier1.innerHTML = '';
+            tier2.innerHTML = '';
+            tier3.innerHTML = '';
+
+            memberDetails.forEach(mem => {
+                const displayRole = currentLanguage === 'id' ? mem.role : mem.role_en;
+                const cardHTML = `
+                    <div onclick="openMemberDetail(${mem.id})" class="bg-slate-900 hover:bg-slate-800/80 border border-darkBorder hover:border-brand-500/50 p-5 rounded-2xl text-center shadow-lg transition-all duration-300 cursor-pointer group transform hover:-translate-y-1 relative overflow-hidden flex flex-col items-center">
+                        <div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-brand-500 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-slate-700 group-hover:border-brand-500 bg-slate-950 mb-3.5 transition-colors">
+                            <img src="${mem.avatar}" alt="Profil ${mem.name}" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xs sm:text-sm font-bold text-white group-hover:text-brand-400 transition-colors">${mem.name}</h4>
+                        <p class="text-[10px] text-slate-400 font-semibold tracking-wider uppercase mt-1 leading-snug">${displayRole}</p>
+                        <p class="text-[9px] text-slate-500 font-mono tracking-widest mt-1.5 uppercase">Dapil: ${mem.dapil}</p>
+                    </div>
+                `;
+
+                if (mem.tier === 1) {
+                    tier1.innerHTML = cardHTML;
+                } else if (mem.tier === 2) {
+                    tier2.innerHTML += cardHTML;
+                } else {
+                    tier3.innerHTML += cardHTML;
+                }
+            });
+        }
+
+        function openMemberDetail(id) {
+            const mem = memberDetails.find(item => item.id === id);
+            if (!mem) return;
+
+            document.getElementById('memberModalName').innerText = mem.name;
+            document.getElementById('memberModalRole').innerText = currentLanguage === 'id' ? mem.role : mem.role_en;
+            document.getElementById('memberModalDapil').innerText = `DAPIL: ${mem.dapil}`;
+            document.getElementById('memberModalTupoksi').innerText = currentLanguage === 'id' ? mem.tupoksi : mem.tupoksi_en;
+            document.getElementById('memberModalImg').src = mem.avatar;
+
+            document.getElementById('memberModal').classList.remove('hidden');
+        }
+
+        function closeMemberModal() {
+            document.getElementById('memberModal').classList.add('hidden');
+        }
+
+
+        // Render News and Agenda
+        function renderBerita() {
+            const grid = document.getElementById('newsGridContainer');
+            grid.innerHTML = '';
+
+            beritaData.forEach(item => {
+                const displayTitle = currentLanguage === 'id' ? item.title_id : item.title_en;
+                const displayDesc = currentLanguage === 'id' ? item.desc_id : item.desc_en;
+                
+                // create card
+                const div = document.createElement('div');
+                div.className = "bg-slate-900 border border-darkBorder rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full";
+                div.innerHTML = `
+                    <div class="h-44 bg-slate-950 border-b border-darkBorder overflow-hidden relative">
+                        <span class="absolute top-3 left-3 bg-brand-600 text-white text-[9px] font-extrabold px-2.5 py-1 rounded-lg uppercase tracking-wider z-10">${item.tag}</span>
+                        <img src="https://placehold.co/400x200/0b0f19/ffffff?text=BPD+Surokidul" alt="Cover" class="w-full h-full object-cover transform hover:scale-105 transition-all duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <span class="text-[10px] text-slate-500 font-semibold flex items-center gap-1">
+                                <i class="fa-regular fa-calendar"></i> ${item.tgl}
+                            </span>
+                            <h4 class="text-sm font-bold text-white leading-snug line-clamp-2 hover:text-brand-400 transition-colors cursor-pointer" onclick="openNewsDetail(${item.id})">${displayTitle}</h4>
+                            <p class="text-[11px] text-slate-400 leading-relaxed font-light line-clamp-3">${displayDesc}</p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-950 flex justify-between items-center">
+                            <button onclick="openNewsDetail(${item.id})" class="text-xs font-bold text-brand-400 hover:text-white flex items-center gap-1 transition-all">
+                                <span data-i18n="read-more">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right-long text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(div);
+            });
+            // Update translation state of newly rendered buttons
+            setLanguage(currentLanguage);
+        }
+
+        function openNewsDetail(id) {
+            const art = beritaData.find(item => item.id === id);
+            if (!art) return;
+
+            document.getElementById('generalModalLabel').innerText = art.tag;
+            document.getElementById('generalModalTitle').innerText = currentLanguage === 'id' ? art.title_id : art.title_en;
+            document.getElementById('generalModalDate').innerText = art.tgl;
+            document.getElementById('generalModalContent').innerText = currentLanguage === 'id' ? art.desc_id : art.desc_en;
+            document.getElementById('generalModalActionBtn').href = art.link;
+
+            document.getElementById('generalModal').classList.remove('hidden');
+        }
+
+        function closeGeneralModal() {
+            document.getElementById('generalModal').classList.add('hidden');
+        }
+
+
+        // Form & Tracking Handler for E-Aspirasi
+        let activeAspFilter = "semua";
+        
+        function generateTrackingCode() {
+            const num = Math.floor(1000 + Math.random() * 9000);
+            return `SKD-ASP-${num}`;
+        }
+
+        function handleAspSubmit(event) {
+            event.preventDefault();
+            
+            const namaInput = document.getElementById('aspNama').value.trim();
+            const telp = document.getElementById('aspTelepon').value.trim();
+            const dukuh = document.getElementById('aspDukuh').value;
+            const kategori = document.getElementById('aspKategori').value;
+            const isi = document.getElementById('aspIsi').value.trim();
+
+            const nama = namaInput === "" ? (currentLanguage === "id" ? "Anonim Surokidul" : "Anonymous Citizen") : namaInput;
+            const tglToday = new Date().toISOString().split('T')[0];
+            const code = generateTrackingCode();
+
+            const newAspirasi = {
+                id: Date.now(),
+                kode: code,
+                pengirim: nama,
+                tgl: tglToday,
+                telepon: telp,
+                dukuh: dukuh,
+                kategori: kategori,
+                pesan_id: isi,
+                pesan_en: isi,
+                status: "Proses",
+                tanggapan_id: "Aduan baru saja diterima oleh Sekretariat BPD Surokidul dan sedang dikoordinasikan.",
+                tanggapan_en: "Aspiration has been received by the BPD secretariat and is currently being audited."
+            };
+
+            // Push to local storage database
+            aspirasiData.unshift(newAspirasi);
+
+            // Render updates
+            renderAspirasi();
+            renderAdminAspirasi();
+
+            // Display success window
+            document.getElementById('aspSuccessCode').innerText = code;
+            document.getElementById('aspSuccessAlert').classList.remove('hidden');
+        }
+
+        function resetAspForm() {
+            document.getElementById('aspForm').reset();
+            document.getElementById('aspSuccessAlert').classList.add('hidden');
+        }
+
+
+        // Render Public Aspiration Tracking List
+        function renderAspirasi() {
+            const list = document.getElementById('aspirasiList');
+            list.innerHTML = '';
+
+            const filtered = aspirasiData.filter(item => {
+                if (activeAspFilter === 'semua') return true;
+                return item.status === activeAspFilter;
+            });
+
+            if (filtered.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-10 text-slate-500 text-xs font-light font-sans">
+                        <i class="fa-solid fa-folder-open text-2xl mb-2 text-slate-600 block"></i>
+                        Aspirasi tidak ditemukan.
+                    </div>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const statusClass = item.status === 'Selesai' 
+                    ? 'bg-emerald-950 text-emerald-400 border border-emerald-900/60' 
+                    : 'bg-yellow-950 text-yellow-400 border border-yellow-900/60';
+                
+                const statusLabel = item.status === 'Selesai' 
+                    ? (currentLanguage === 'id' ? 'Telah Disalurkan' : 'Resolved') 
+                    : (currentLanguage === 'id' ? 'Sedang Dibahas' : 'In Review');
+
+                const msg = currentLanguage === 'id' ? item.pesan_id : item.pesan_en;
+                const tanggapan = currentLanguage === 'id' ? item.tanggapan_id : item.tanggapan_en;
+
+                const card = document.createElement('div');
+                card.className = "bg-slate-950 border border-darkBorder p-5 rounded-2xl space-y-3.5 shadow-sm";
+                card.innerHTML = `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-900 pb-2.5">
+                        <div class="flex items-center space-x-2.5">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-darkBorder font-mono text-[10px] font-bold text-brand-400 tracking-wider">${item.kode}</span>
+                            <span class="text-[10px] text-slate-400 font-medium">${item.tgl}</span>
+                        </div>
+                        <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-bold text-center self-start sm:self-auto ${statusClass}">${statusLabel}</span>
+                    </div>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex items-center justify-between">
+                            <span class="font-extrabold text-slate-200">${item.pengirim}</span>
+                            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">${item.dukuh}</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed font-light">${msg}</p>
+                    </div>
+                    <!-- Official Reply box -->
+                    <div class="bg-slate-900/80 p-3.5 rounded-xl border border-darkBorder space-y-1.5 font-sans">
+                        <div class="flex items-center gap-1.5 text-[10px] font-extrabold text-brand-400 uppercase tracking-widest">
+                            <i class="fa-solid fa-reply-all"></i>
+                            <span data-i18n="tanggapan-bpd">Tindak Lanjut & Tanggapan BPD</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed font-light">${tanggapan}</p>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+            setLanguage(currentLanguage);
+        }
+
+        function filterAspirasi(val) {
+            activeAspFilter = val;
+            const btns = {
+                'semua': 'filt-semua',
+                'Proses': 'filt-proses',
+                'Selesai': 'filt-selesai'
+            };
+            Object.keys(btns).forEach(key => {
+                const el = document.getElementById(btns[key]);
+                if (key === val) {
+                    el.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-brand-600 text-white";
+                } else {
+                    el.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-slate-950 text-slate-400 border border-darkBorder hover:border-slate-700";
+                }
+            });
+            renderAspirasi();
+        }
+
+
+        // Admin Access Control Portal
+        function openAdminModal() {
+            document.getElementById('admin-error-msg').classList.add('hidden');
+            document.getElementById('adminModal').classList.remove('hidden');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
+
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const user = document.getElementById('admin-user').value.trim();
+            const pass = document.getElementById('admin-pass').value;
+
+            // Updated credential validation according to instruction
+            if (user === "admin" && pass === "bpdsuro008") {
+                closeAdminModal();
+                openAdminDashboard();
+            } else {
+                document.getElementById('admin-error-msg').classList.remove('hidden');
+            }
+        }
+
+        function openAdminDashboard() {
+            renderAdminAspirasi();
+            document.getElementById('adminDashboard').classList.remove('hidden');
+        }
+
+        function closeAdminDashboard() {
+            document.getElementById('adminDashboard').classList.add('hidden');
+        }
+
+
+        // Admin Panel Rendering for Aspirations Management
+        function renderAdminAspirasi() {
+            const list = document.getElementById('adminAspirasiList');
+            const queueLabel = document.getElementById('dash-queue-cnt');
+            list.innerHTML = '';
+
+            const activeQueue = aspirasiData.filter(i => i.status === 'Proses').length;
+            queueLabel.innerText = `${activeQueue} Antrean`;
+
+            aspirasiData.forEach(item => {
+                const isSelectedDone = item.status === 'Selesai';
+                const container = document.createElement('div');
+                container.className = "p-4.5 bg-slate-900 border border-darkBorder rounded-2xl space-y-4 font-sans";
+                container.innerHTML = `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-950 pb-2.5">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs font-mono font-bold text-brand-400">${item.kode}</span>
+                            <span class="text-[10px] text-slate-500">${item.tgl}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] text-slate-400">Status Node:</span>
+                            <select onchange="updateAspirasiStatus(${item.id}, this.value)" class="bg-slate-950 border border-slate-800 rounded-lg text-[10px] px-2 py-1 text-slate-200 font-bold focus:outline-none focus:border-brand-500">
+                                <option value="Proses" ${item.status === 'Proses' ? 'selected' : ''}>PROSES</option>
+                                <option value="Selesai" ${item.status === 'Selesai' ? 'selected' : ''}>SELESAI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="space-y-1.5 text-xs">
+                        <p class="text-white font-bold">${item.pengirim} <span class="text-[10px] text-slate-500 font-mono font-normal">(${item.telepon} // ${item.dukuh})</span></p>
+                        <p class="text-slate-300 font-light italic">"${item.pesan_id}"</p>
+                    </div>
+                    <!-- Form Reply Input -->
+                    <div class="space-y-1.5">
+                        <label class="block text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Ketik Balasan Resmi BPD Surokidul</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="admin-rep-${item.id}" value="${item.tanggapan_id}" placeholder="Ketik draf tindak lanjut..." class="flex-1 px-3 py-2 bg-slate-950 border border-slate-800 focus:border-brand-500 rounded-xl outline-none text-xs text-slate-200">
+                            <button onclick="saveAdminReply(${item.id})" class="px-4.5 py-2 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs font-bold transition-all shrink-0">
+                                Simpan
+                            </button>
+                        </div>
+                    </div>
+                `;
+                list.appendChild(container);
+            });
+        }
+
+        function updateAspirasiStatus(id, value) {
+            const asp = aspirasiData.find(item => item.id === id);
+            if (asp) {
+                asp.status = value;
+                renderAspirasi();
+                renderAdminAspirasi();
+            }
+        }
+
+        function saveAdminReply(id) {
+            const inputVal = document.getElementById(`admin-rep-${id}`).value.trim();
+            const asp = aspirasiData.find(item => item.id === id);
+            if (asp && inputVal !== "") {
+                asp.tanggapan_id = inputVal;
+                asp.tanggapan_en = "Updated response: " + inputVal;
+                renderAspirasi();
+                renderAdminAspirasi();
+                alert('Tanggapan BPD Surokidul berhasil diperbarui dan dipublikasikan!');
+            }
+        }
+    </script>
+</body>
+</html>
